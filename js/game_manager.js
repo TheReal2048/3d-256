@@ -87,7 +87,7 @@ GameManager.prototype.addBonus = function () {
     return;
   }
   var maxBonus = 4;
-  var values = [4, 64, 256];
+  var values = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096];
   var value = values[Math.floor(Math.random() * values.length)];
   if (this.bonus[value] === undefined) {
     this.bonus[value] = 0;
@@ -200,7 +200,7 @@ GameManager.prototype.move = function (direction) {
               self.max = merged.value;
             }
             // The mighty 2048 tile
-            if (merged.value === 2048 && merged.type === 'number') self.won = true;
+            if (merged.value === 256 && merged.type === 'number') self.won = true;
           } else {
             self.moveTile(tile, positions.farthest);
           }
